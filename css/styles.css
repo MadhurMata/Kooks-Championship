@@ -1,0 +1,38 @@
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* game styles*/
+
+body{
+  background-color: whitesmoke;
+  font-family: 'Original Surfer', cursive;
+  max-width: 1440px;
+  
+}
+
+#canvas{
+  display: none;
+}
+
+.container{
+  background-image: url();
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding-top: 30%;
+
+}

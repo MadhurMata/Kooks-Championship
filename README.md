@@ -11,14 +11,14 @@ WSK (World Surf Kooks League)
 
 
 ## Description
-Game where the “kook” (player) is a surfer that moves around an ocean with sick waves,but it is also nested of sharks.
+Game where the “kook” (player) is a surfer that moves around an ocean with sick waves, but it is also nested of sharks.
 
 ## MVP (DOM - CANVAS)
 
-CANVAS One square moving around trying to avoid diferent other squares. The player lose if it collides with the other squares.
+CANVAS One square moving around trying to avoid diferent other squares. The player loose if it collides with the other squares.
 
 ## Backlog
-  Give player lives
+  - Give player lives
   Give player points
   Images
   Backgrounds
@@ -27,18 +27,19 @@ CANVAS One square moving around trying to avoid diferent other squares. The play
   High score
 
 ## Data structure
-  function game() {
+  ```function Game() {
     this.player;
     this.enemies;
     this.ctx;
 
+    drawCanvas();
     gameStart();
     startLoop();
     gameStop();
     checkCollideWithEnemy();
   }
 
-  function player() {
+  function Player() {
     this.x;
     this.y;
     this.size;
@@ -51,7 +52,7 @@ CANVAS One square moving around trying to avoid diferent other squares. The play
     setDraw;
     setUpdate;
   }
-  function enemy() {
+  function Enemy() {
     this.x;
     this.y;
     this.size;
@@ -64,77 +65,90 @@ CANVAS One square moving around trying to avoid diferent other squares. The play
     setDraw;
     setUpdate;
   }
+  ```
 
 ## States y States Transitions
 Definition of the different states and their transition (transition functions)
 
 Splash Screen
-  Splash screen
-  Build splash DOM
-  AddEventListener
+- Build splash screen
+- Build splash DOM
+- Destroy splash screen
+- AddEventListener
 
 Game Screen
-  Game screen
-  Build game DOM
-  Game start
-  
+  - Build game screen
+  - Build game DOM
+  - Destroy game DOM
 
 Gameover Screen
-  Game Over Screen
-  Biuild DOM
-  Play again
-  AddEventListener
+  - Build Game Over Screen
+  - Build DOM
+  - Destroy gameover screen 
+  - AddEventListener
 
 ## Task
 Task definition in order of priority
 
 Pre-coding
-  Sketch DOM's for three screens
-  Write 
-  Create main.js, game.js, player.js and enemy.js document
-  Create index.html
-  Link documents
-  Build a game DOM
-  Create a canvas
-  Declare startGame function in main.js
-  Build Splash DOM
-  Build Game Over DOM
+  - Sketch DOM's for three screens
+  - Define classes
+  - Create main.js, game.js, player.js and       enemy.js document
+  - Create index.html
+  - Create css
+  - Link documents
+  - Create a canvas
 
-
-Game
-  Declare game function in game.js
-  Declare new player
-  Declare new enemy
-  Declare draw canvas function (playerdraw() & enemiesdraw())
-  Declare start function
-  Declare stop function
-  Declare key up, key down, key left and key right functions
-
-
+  Main
+  - Call startGame function in main.js
+  - buildSplashScreen();
+  - destroySplashScreen();
+  - addEventListener();
+  - buildGameScreen();
+  - buildGameoverScreen();
+  - destroyGameoverScreen(); 
+  - addEventListener();
+  - Test transition between screens
 
  Player 
-  Declare player constructor funtion
-  Declare draw function
-  Declare setDirection function
-  Declare Update function
-  Declare collition function
+  - Declare player constructor function
+      x, y direction, size, speed, this canvas, ctx
+  - Declare draw function
+  - Declare setDirection function
+      up, down, left, right
+  - Declare Update function
+      x, y
+  - Declare checkCollideWithEnemy function
+    rignt, left, up down
 
 Enemy
-  Declare enemy constructur function
-  Declare draw function
-  Declare setDirection function
-  Declare Update function
+  - Declare enemy constructur function
+      x, y, size, speed, this canvas, ctx
+  - Declare draw function
+  - Declare update function
+      x, y
+  - Declare isInScreen
 
-Collition function
-
-
+Game
+  - Declare game constructor in game.js
+      player, enemy, ctx, gameOver, animation
+  - Declare clearCanvas 
+  - Declare draw canvas function
+      playerdraw() & enemiesdraw()
+  - Declare updateGame
+  - Declare start function
+      declare loop function
+        call gameOver function
+        requestAnimationFrame
+      requestAnimationFrame  
+  - Declare createEnemies
+  - Declare stop function
+      cancelAnimationFrame
+  - Declare key up, key down, key left and key right functions
 
 
 ## Links
 
-
-### Trello
-[Link url](https://trello.com)
 
 ### Git
 URls for the project repo and deploy
