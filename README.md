@@ -99,35 +99,21 @@ Pre-coding
   - Link documents
   - Create a canvas
 
+ Design 
+  - build html and css 3 screens
+
   Main
-  - Call startGame function in main.js
+  - Call startGame function
   - buildSplashScreen();
   - destroySplashScreen();
   - addEventListener();
   - buildGameScreen();
+  - destroyGameScreen(); 
+
   - buildGameoverScreen();
   - destroyGameoverScreen(); 
-  - addEventListener();
+  - addEventListener
   - Test transition between screens
-
- Player 
-  - Declare player constructor function
-      x, y direction, size, speed, this canvas, ctx
-  - Declare draw function
-  - Declare setDirection function
-      up, down, left, right
-  - Declare Update function
-      x, y
-  - Declare checkCollideWithEnemy function
-    rignt, left, up down
-
-Enemy
-  - Declare enemy constructur function
-      x, y, size, speed, this canvas, ctx
-  - Declare draw function
-  - Declare update function
-      x, y
-  - Declare isInScreen
 
 Game
   - Declare game constructor in game.js
@@ -145,6 +131,26 @@ Game
   - Declare stop function
       cancelAnimationFrame
   - Declare key up, key down, key left and key right functions
+
+ Player 
+  - Declare player constructor function
+      x, y direction, size, speed, canvas, ctx
+  - Declare draw function
+  - Declare setDirection function
+      up, down, left, right
+  - Declare Update function
+      x, y
+  - Declare checkCollideWithEnemy function
+    rignt, left, up, down
+    
+Enemy
+  - Declare enemy constructur function
+      x, y, size, speed, canvas, ctx
+  - Declare draw function
+  - Declare update function
+      x, y
+  - Declare isInScreen
+
 
 
 ## Links

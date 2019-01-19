@@ -22,10 +22,13 @@ body{
 }
 
 #canvas{
-  display: none;
+  display: block;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.container{
+#container{
   background-image: url();
   background-size: cover;
   display: flex;
@@ -33,6 +36,12 @@ body{
   align-items: center;
   text-align: center;
   flex-direction: column;
-  padding-top: 30%;
+  padding-top: 0;
+}
 
+.button{
+  border: 1px solid rgb(33, 193, 233);
+  border-radius: 90%;
+  background-color: rgb(33, 193, 233, 0.8);
+  padding: 3%;
 }
