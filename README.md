@@ -145,7 +145,7 @@ Game
     
 Enemy
   - Declare enemy constructur function
-      x, y, size, speed, canvas, ctx
+      x, y, size, speed, ctx
   - Declare draw function
   - Declare update function
       x, y
