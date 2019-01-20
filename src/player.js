@@ -63,13 +63,22 @@ Player.prototype.movement = function () {
         this.x = this.canvas.width - this.size;
     } else if (this.x <= 0) {
         this.x = 0;
-    }
+    };
 
     if (this.y > this.canvas.height - this.size) {
         this.y = this.canvas.height - this.size;
     } else if (this.y <= 0) {
         this.y = 0;
-    }
+    };
 };
 
+Player.prototype.checkCollition = function(enemy){
+  
+    var rightCollition = this.x + this.size / 2 > enemy.x - enemy.size / 2;
+    var leftCollition = this.x < enemy.x + enemy.size / 2;
+    var topCollition = this.y  < enemy.y + enemy.size / 2;
+    var bottomCollition = this.y + this.size / 2 > enemy.y - enemy.size / 2;
 
+    return leftCollition && rightCollition && topCollition && bottomCollition;
+
+}

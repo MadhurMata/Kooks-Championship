@@ -3,10 +3,13 @@ function main() {
 function startGame(){
   buildScreen(gameScreen);
   var canvas = document.getElementById("canvas");
-  var game = new Game(canvas);
-  timeOut();
+  var game = new Game(canvas, endGame);
   game.start();
 
+  function endGame(){
+    game.stop();
+    gameOverScreen()
+  }
   
 
 }
@@ -45,14 +48,15 @@ var gameOverScreen =
   }
 
     //Hago que la pantalla game espere tres segundos despues ejecuto buildScreen(gameover) y el addEventListener
-  function timeOut(){
-    setTimeout(function(){
+  function gameOverScreen(){
+    
     buildScreen(gameOverScreen);
     document.getElementById("start").addEventListener("click", startGame);  
-    }, 300000);
+    
   }  
 
   startScreen();
+
 
 };
 // Hace que cargue la pagina antes de ejecutar todo el codigo en main
@@ -64,3 +68,4 @@ document.body.addEventListener("keydown", function (e) {
 document.body.addEventListener("keyup", function (e) {
   keys[e.keyCode] = false;
 });
+
