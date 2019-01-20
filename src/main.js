@@ -5,19 +5,10 @@ function startGame(){
   var canvas = document.getElementById("canvas");
   var game = new Game(canvas);
   timeOut();
+  game.start();
 
-  var onKeyDown = function (event) {
-    switch (event.keyCode) {
-        case 38: game.keyUp(); break;
-        case 40: game.keyDown(); break;
-        case 37: game.keyLeft(); break;
-        case 39: game.keyRight(); break;
-    }
-  }
   
-  document.addEventListener('keyup', onKeyDown);
 
-    game.start();
 }
 
 
@@ -66,3 +57,10 @@ var gameOverScreen =
 };
 // Hace que cargue la pagina antes de ejecutar todo el codigo en main
 window.addEventListener("load", main)
+
+document.body.addEventListener("keydown", function (e) {
+  keys[e.keyCode] = true;
+});
+document.body.addEventListener("keyup", function (e) {
+  keys[e.keyCode] = false;
+});

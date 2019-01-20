@@ -1,11 +1,11 @@
 "use strict"
 
 
-function Enemy(){
-  this.x =  x;
-  this.y = y; 
+function Enemy(canvas){
+  this.x =  100;
+  this.y = 100; 
   this.size = 20;
-  this.speed = speed;
+  this.speed = 2;
   this.ctx = canvas.getContext('2d');
 
 }
@@ -16,6 +16,7 @@ Enemy.prototype.draw = function(){
 };
 
 Enemy.prototype.update = function (){
+  this.x -= this.speed;
 
 };
 

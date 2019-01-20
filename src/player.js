@@ -14,10 +14,11 @@ function Player(canvas) {
   this.x =  280;
   this.y = 280;
   this.size = 40;
-  this.directionX = 0; 
-  this.directionY = 0; 
-  this.speed = 2;
-  this.canvas = canvas
+  this.velY = 0;
+  this.velX = 0; 
+  this.speed = 3;
+  this.friction = 0.8;
+  this.canvas = canvas;
   this.ctx = canvas.getContext('2d');
   
 };
@@ -25,20 +26,50 @@ function Player(canvas) {
 Player.prototype.draw = function() {
   this.ctx.fillRect(this.x, this.y, this.size, this.size);
 };
+var keys = [];
 
-Player.prototype.setDirection = function(direction) {
-  if (direction === "up" || direction === "left" ) {
-      this.direction = -1;
-  } else if (direction === "down" || direction === "right") {
-      this.direction = 1;
-  }
+Player.prototype.update = function() {
+  if (keys[38]) {
+    if (this.velY > -this.speed) {
+        this.velY--;
+    }
 }
 
-
-Player.prototype.update = function(){
-  // update x and y
-
-  this.y += this.directionY * this.speed;
-  this.x += this.directionX * this.speed;
-
+if (keys[40]) {
+    if (this.velY < this.speed) {
+        this.velY++;
+    }
+}
+if (keys[39]) {
+    if (this.velX < this.speed) {
+        this.velX++;
+    }
+}
+if (keys[37]) {
+    if (this.velX > -this.speed) {
+        this.velX--;
+    }
+}
+ this.movement();
 };
+
+Player.prototype.movement = function () {
+  this.velY *= this.friction;
+    this.y += this.velY;
+    this.velX *= this.friction;
+    this.x += this.velX;
+
+    if (this.x >= this.canvas.width - this.size) {
+        this.x = this.canvas.width - this.size;
+    } else if (this.x <= 0) {
+        this.x = 0;
+    }
+
+    if (this.y > this.canvas.height - this.size) {
+        this.y = this.canvas.height - this.size;
+    } else if (this.y <= 0) {
+        this.y = 0;
+    }
+};
+
+

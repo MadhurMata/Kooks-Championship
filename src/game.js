@@ -3,7 +3,8 @@
 function Game(canvas) {
   this.ctx = canvas.getContext("2d");
   this.player = new Player(canvas);
-  this.enemies =[];
+  this.enemy = new Enemy(canvas);
+  this.enemies = [];
   this.animation;
 
   this._clearCanvas = function() {
@@ -12,13 +13,15 @@ function Game(canvas) {
 
   this._drawCanvas = function() {
         this.player.draw();
-        this.enemies.forEach(function(enemy) {
-            enemy.draw();
-        })
+        this.enemy.draw();
+        
     }
 
   this._updateGame = function() {
       this.player.update();
+
+      this.enemy.update();
+      
   }
 };
 
@@ -36,19 +39,10 @@ Game.prototype.start = function(){
     this.animation = window.requestAnimationFrame(loop.bind(this));
 
   }
+
   this.animation = window.requestAnimationFrame(loop.bind(this));
 
 };
 
-Game.prototype.keyUp = function(){
-  this.player.setDirection("up")
-}
-Game.prototype.keyDown = function(){
-  this.player.setDirection("down")
-}
-Game.prototype.keyLeft = function(){
-  this.player.setDirection("left")
-}
-Game.prototype.keyRight = function(){
-  this.player.setDirection("right")
-}
+
+ 
