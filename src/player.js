@@ -1,19 +1,11 @@
 "use strict"
 
-// - Declare player constructor function
-//       x, y direction, size, speed, canvas, ctx
-//   - Declare draw function
-//   - Declare setDirection function
-//       up, down, left, right
-//   - Declare Update function
-//       x, y
-//   - Declare checkCollideWithEnemy function
-//     rignt, left, up, down
-
 function Player(canvas) {
   this.x =  280;
   this.y = 280;
-  this.size = 40;
+  this.srcX = 0;
+  this.srcY = 52;
+  this.size = 50;
   this.velY = 0;
   this.velX = 0; 
   this.speed = 3;
@@ -21,36 +13,37 @@ function Player(canvas) {
   this.canvas = canvas;
   this.ctx = canvas.getContext('2d');
   this.img = new Image();
+  this.img.src = "./images/surfer.png";
 };
 
 Player.prototype.draw = function() {
-  this.ctx.fillRect(this.x, this.y, this.size, this.size);
-  this.img.src = "./images/surfer1.svg";
-  this.ctx.drawImage(this.img, this.x, this.y, 40, 40);
+  this.ctx.drawImage(this.img, this.srcX, this.srcY, this.size, this.size, this.x, this.y, this.size, this.size);
 };
 var keys = [];
 
 Player.prototype.update = function() {
-  if (keys[38]) {
+  if (keys[38]) { //up
+    this.srcY = 104;
     if (this.velY > -this.speed) {
-        this.velY--;
+    this.velY--;
     }
-}
-
-if (keys[40]) {
-    if (this.velY < this.speed) {
-        this.velY++;
+  } else if (keys[40]) { //down
+    this.srcY = 52;
+  if (this.velY < this.speed) {
+    this.velY++;
     }
-}
-if (keys[39]) {
+  } else if (keys[39]) { //right
+    this.srcY = 0;
     if (this.velX < this.speed) {
         this.velX++;
     }
-}
-if (keys[37]) {
+  } else if (keys[37]) { //left
+    this.srcY = 156;
     if (this.velX > -this.speed) {
         this.velX--;
     }
+  } else {4
+    this.srcY = 52;
 }
  this.movement();
 };

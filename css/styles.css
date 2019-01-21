@@ -29,25 +29,32 @@ body{
 }
 
 #container{
-  
   display: flex;
-  justify-content: center;
+  /* justify-content: center;
   align-items: center;
   text-align: center;
-  flex-direction: column;
+  flex-direction: column; */
   padding-top: 0;
 }
 #x{
   background-image: url("../images/backgroundSplash.jpg");
   background-size: cover;
-
+  padding: 20%;
+  
 }
 
 #y{
   background-image: url("../images/background.jpg");
   background-size: cover;
-
 }
+#z{
+    background-image: url("../images/backgroundGameOver.png");
+  background-size: cover;
+  padding: 40%;
+
+  }
+
+
 .button{
   border: 1px solid rgb(33, 193, 233);
   border-radius: 90%;
