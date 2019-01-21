@@ -11,11 +11,14 @@ function Enemy(canvas, y, speedX, speedY){
   this.directionX = 1;
   this.directionY = 1;
   this.ctx = canvas.getContext('2d');
+  this.img = new Image();
 }
 
 Enemy.prototype.draw = function(){
-  this.ctx.fillRect(this.x, this.y, this.size, this.size);
+  this.img.src = "./images/shark.svg";
+  this.ctx.drawImage(this.img, this.x, this.y, 20, 20);
 };
+
 
 Enemy.prototype.update = function (){
   this.x -= this.directionX * this.speedX;
@@ -33,7 +36,6 @@ if ((this.x <= 0) || (this.x >= this.canvas.width - this.size)) {
     this.x = 0;
 }
 }
-  
 
 };
 

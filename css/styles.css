@@ -29,8 +29,7 @@ body{
 }
 
 #container{
-  background-image: url();
-  background-size: cover;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +37,17 @@ body{
   flex-direction: column;
   padding-top: 0;
 }
+#x{
+  background-image: url("../images/backgroundSplash.jpg");
+  background-size: cover;
 
+}
+
+#y{
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+
+}
 .button{
   border: 1px solid rgb(33, 193, 233);
   border-radius: 90%;

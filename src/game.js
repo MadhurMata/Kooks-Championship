@@ -36,7 +36,6 @@ Game.prototype.updateGame = function() {
       enemy.update();
 
       if(this.player.checkCollition(enemy)){
-        console.log("chocan");
         this.endGame();
       }
     }.bind(this));
@@ -59,6 +58,7 @@ Game.prototype.createEnemies = function(){
 
 Game.prototype.start = function(){
   function loop() {
+    this.animation = window.requestAnimationFrame(loop.bind(this));
 
     this.updateGame();
 
@@ -66,7 +66,6 @@ Game.prototype.start = function(){
 
     this.drawCanvas();
 
-    this.animation = window.requestAnimationFrame(loop.bind(this));
 
   }
 

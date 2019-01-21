@@ -20,11 +20,13 @@ function Player(canvas) {
   this.friction = 0.8;
   this.canvas = canvas;
   this.ctx = canvas.getContext('2d');
-  
+  this.img = new Image();
 };
 
 Player.prototype.draw = function() {
   this.ctx.fillRect(this.x, this.y, this.size, this.size);
+  this.img.src = "./images/surfer1.svg";
+  this.ctx.drawImage(this.img, this.x, this.y, 40, 40);
 };
 var keys = [];
 
