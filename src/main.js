@@ -53,10 +53,25 @@ function main() {
   
     function buildGameOverScreen(){
       var gameOverScreen = 
-      `<div id="z"> 
-        <h1>Game Over</h1>
-        <a href="#" id="start" class="button">Start Game</a>
-      </div>`;    
+      `<div id="z">
+      <div class="gameOver"></div> 
+      <div>
+        <div class="tableTitle"><h2>Ranking</h2></div>
+        <div class="bestScores">
+          <ol>
+            <li>..............</li>
+            <li>..............</li>
+            <li>..............</li>
+            <li>..............</li>
+            <li>..............</li>
+          </ol>
+        </div>
+      </div>
+      <div class="buttons">
+        <div><a href="#" id="start" class="button">Play again</a></div>  
+        <div><a href="#" id="start" class="button">Return</a></div>   
+      </div>
+    </div>`;    
       buildScreen(gameOverScreen);
       document.getElementById("start").addEventListener("click", startGame);  
       

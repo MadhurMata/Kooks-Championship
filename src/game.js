@@ -8,6 +8,7 @@ function Game(canvas, endGame) {
   this.animation;
   this.canvas = canvas;
   this.endGame = endGame;
+  this.score = [];
 
 };
 
@@ -58,7 +59,9 @@ Game.prototype.updateGame = function() {
       wave.update();
 
       if(this.player.checkCollition(wave)){
-        this.endGame();
+        this.score.push(this.score + 1);
+        console.log(this.score)
+        wave.collide();
       }
     }.bind(this));
     

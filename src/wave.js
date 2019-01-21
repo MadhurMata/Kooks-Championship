@@ -17,7 +17,6 @@ function Wave(canvas, y, speedX, speedY){
 
 Wave.prototype.draw = function(){
   this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
-  console.log("wave")
 };
 
 
@@ -42,5 +41,8 @@ if ((this.x <= 0) || (this.x >= this.canvas.width - this.size)) {
 
 Wave.prototype.isInScreen = function () {
   return this.x + this.size >= 0;
-
 };
+
+Wave.prototype.collide = function() {
+  this.x = -100000;
+}
