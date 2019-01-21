@@ -162,4 +162,4 @@ URls for the project repo and deploy
 
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](http://slides.com)
+https://slides.com/madhursmg/wol/live

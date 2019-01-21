@@ -3,7 +3,7 @@
 
 function Wave(canvas, y, speedX, speedY){
   this.size = 50;
-  this.y = (canvas.height-this.size) /2;
+  this.y = (canvas.height-this.size * 5);
   this.x = canvas.width-(this.size * 5);
   this.speedX = speedX;
   this.speedY = speedY;

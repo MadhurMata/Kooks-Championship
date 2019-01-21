@@ -7,40 +7,66 @@ html {
   box-sizing: inherit;
 }
 
-body, ul {
+body, ul, h1 {
   margin: 0;
   padding: 0;
 }
 
 /* game styles*/
 
+
 body{
-  background-color: whitesmoke;
+  
   font-family: 'Original Surfer', cursive;
   max-width: 1440px;
-  
 }
 
+h1{
+ font-size: 3rem;
+ font-weight: bold;
+}
 #canvas{
   display: block;
   justify-content: center;
   align-items: center;
-
 }
 
 #container{
-  display: flex;
-  /* justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column; */
-  padding-top: 0;
-}
-#x{
   background-image: url("../images/backgroundSplash.jpg");
   background-size: cover;
+  
+}
+#x{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
   padding: 20%;
   
+}
+.playerName{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 5%
+}
+textarea{
+  resize: none;
+  background: transparent;
+  border: 1px dashed;
+  border-radius: 5%
+
+}
+.button{
+  background-image: url("../images/surfboard.png");
+  background-size: cover;
+  padding: 7.2% 5% 5% 12%;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
 }
 
 #y{
@@ -54,10 +80,3 @@ body{
 
   }
 
-
-.button{
-  border: 1px solid rgb(33, 193, 233);
-  border-radius: 90%;
-  background-color: rgb(33, 193, 233, 0.8);
-  padding: 3%;
-}

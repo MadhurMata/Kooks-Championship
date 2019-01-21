@@ -3,7 +3,7 @@
 
 function Enemy(canvas, y, speedX, speedY){
   this.size = 20;
-  this.y = (canvas.height - this.size) / 2;
+  this.y = Math.round(Math.random() * canvas.height);
   this.x = canvas.width-(this.size * 5);
   this.speedX = speedX;
   this.speedY = speedY;

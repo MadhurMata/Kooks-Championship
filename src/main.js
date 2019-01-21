@@ -10,9 +10,19 @@ function main() {
   function startScreen(){
     var splashScreen =
     `<div id="x">
-      <h1>World Surf Kooks League</h1>
-      <a href="#" id="start" class="button">Start Game</a>
-    </div>`;
+    <div>
+      <div><h1>World Surf Kooks League</h1></div>
+      <div class="playerName">
+        <div>
+          <h2>Player Name</h2>
+        </div>
+        <div>
+          <textarea id="insertName" cols="30" rows="1"></textarea>
+          </div>
+      </div>
+      <div><a href="#" id="start" class="button">Start Game</a></div> 
+    </div>
+  </div>`;
     //LLamo y pinto pantalla de inicio
     buildScreen(splashScreen);  
     //Pongo la funcion de ir a la pantalla de juego en un boton de splash screen
