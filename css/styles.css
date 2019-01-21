@@ -25,11 +25,6 @@ h1{
  font-size: 3rem;
  font-weight: bold;
 }
-#canvas{
-  display: block;
-  justify-content: center;
-  align-items: center;
-}
 
 #container{
   background-image: url("../images/backgroundSplash.jpg");
@@ -70,9 +65,26 @@ textarea{
 }
 
 #y{
+  display: flex;
+  flex-direction: row;
+}
+
+.info{
+  display: flex;
+  justify-content: end;
+  padding-right: 5%;
+  padding-left: 5%;
+  align-items: center;
+  flex-direction: column;
+}
+#canvas{
   background-image: url("../images/background.jpg");
   background-size: cover;
+  display: block;
+  justify-content: flex-end;
+  align-items: center;
 }
+
 #z{
     background-image: url("../images/backgroundGameOver.png");
   background-size: cover;

@@ -1,4 +1,5 @@
 "use strict"
+
 function main() {
   
   function buildScreen(html) {
@@ -28,13 +29,19 @@ function main() {
     //Pongo la funcion de ir a la pantalla de juego en un boton de splash screen
     document.getElementById("start").addEventListener("click", startGame);  
   }
-  
   function startGame(){
     var gameScreen =
-    `<div id="y">         
-      <canvas id="canvas" width="600" height="600"></canvas>
-    </div>`;
+    `<div id="y">
+    <div class="info">
+      <div><h2>00</h2></div>
+      <div><h2>Score</h2></div>
+    </div>
+    <div><canvas id="canvas" width="600" height="600"></canvas></div>
+  </div>`;
     buildScreen(gameScreen);
+    
+    // mySound = new sound("../music/bustinsurf.mp3")
+    
     var canvas = document.getElementById("canvas");
     var game = new Game(canvas, endGame);
     game.start();
