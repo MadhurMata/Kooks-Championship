@@ -4,6 +4,7 @@ function Game(canvas, endGame) {
   this.ctx = canvas.getContext("2d");
   this.player = new Player(canvas);
   this.enemies = [];
+  this.waves = [];
   this.animation;
   this.canvas = canvas;
   this.endGame = endGame;
@@ -18,10 +19,15 @@ Game.prototype.drawCanvas = function(){
       this.player.draw();
       this.enemies.forEach(function(enemy){
         enemy.draw();
+      });
+      this.waves.forEach(function(wave){
+        wave.draw();
       });      
+  
 }
 
 Game.prototype.updateGame = function() {
+
     this.player.update();
 
     if (Math.random()> 0.98 && this.enemies.length < 8){
@@ -39,6 +45,22 @@ Game.prototype.updateGame = function() {
         this.endGame();
       }
     }.bind(this));
+
+    if ( this.waves.length < 1){
+      this.createWaves();
+    };
+
+    this.waves = this.waves.filter(function(wave){
+      return wave.isInScreen();
+    });
+
+    this.waves.forEach(function(wave){
+      wave.update();
+
+      if(this.player.checkCollition(wave)){
+        this.endGame();
+      }
+    }.bind(this));
     
 };
 
@@ -53,6 +75,19 @@ Game.prototype.createEnemies = function(){
 
   }
   this.enemies.push(new Enemy(canvas, y, speedX, speedY));
+}
+
+Game.prototype.createWaves = function(){
+  var speedX = Math.round(Math.random() * 2);
+  var y = Math.round(Math.random() * canvas.height);
+  var direction = Math.round(Math.random());
+  var speedY = Math.round(Math.random() * 2);
+  if(direction === 0){
+    speedY = Math.round(Math.random() * 2)*(-1);
+    speedX = Math.round(Math.random() * 2)*(-1);
+
+  }
+  this.waves.push(new Wave(canvas, y, speedX, speedY));
 }
 
 

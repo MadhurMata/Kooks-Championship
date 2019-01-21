@@ -5,7 +5,7 @@ function Player(canvas) {
   this.y = 280;
   this.srcX = 0;
   this.srcY = 52;
-  this.size = 50;
+  this.size = 52;
   this.velY = 0;
   this.velX = 0; 
   this.speed = 3;
@@ -76,4 +76,13 @@ Player.prototype.checkCollition = function(enemy){
 
     return leftCollition && rightCollition && topCollition && bottomCollition;
 
+}
+Player.prototype.checkCollition = function(wave){
+  
+  var rightCollition = this.x + this.size / 2 > wave.x - wave.size / 2;
+  var leftCollition = this.x < wave.x + wave.size / 2;
+  var topCollition = this.y  < wave.y + wave.size / 2;
+  var bottomCollition = this.y + this.size / 2 > wave.y - wave.size / 2;
+
+  return leftCollition && rightCollition && topCollition && bottomCollition;
 }

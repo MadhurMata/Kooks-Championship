@@ -1,9 +1,9 @@
 "use strict"
 
 
-function Enemy(canvas, y, speedX, speedY){
-  this.size = 20;
-  this.y = (canvas.height - this.size) / 2;
+function Wave(canvas, y, speedX, speedY){
+  this.size = 50;
+  this.y = (canvas.height-this.size) /2;
   this.x = canvas.width-(this.size * 5);
   this.speedX = speedX;
   this.speedY = speedY;
@@ -12,16 +12,16 @@ function Enemy(canvas, y, speedX, speedY){
   this.directionY = 1;
   this.ctx = canvas.getContext('2d');
   this.img = new Image();
-    this.img.src = "./images/shark.svg";
-
+  this.img.src = "./images/wave.svg";
 }
 
-Enemy.prototype.draw = function(){
+Wave.prototype.draw = function(){
   this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
+  console.log("wave")
 };
 
 
-Enemy.prototype.update = function (){
+Wave.prototype.update = function (){
   this.x -= this.directionX * this.speedX;
   this.y += this.directionY * this.speedY;
   
@@ -40,7 +40,7 @@ if ((this.x <= 0) || (this.x >= this.canvas.width - this.size)) {
 
 };
 
-Enemy.prototype.isInScreen = function () {
+Wave.prototype.isInScreen = function () {
   return this.x + this.size >= 0;
 
 };
