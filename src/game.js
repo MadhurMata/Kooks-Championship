@@ -12,92 +12,95 @@ function Game(canvas, endGame) {
 
 };
 
-Game.prototype.clearCanvas = function() {
+Game.prototype.clearCanvas = function () {
   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 }
 
-Game.prototype.drawCanvas = function(){
-      this.player.draw();
-      this.enemies.forEach(function(enemy){
-        enemy.draw();
-      });
-      this.waves.forEach(function(wave){
-        wave.draw();
-      });      
-  
+Game.prototype.drawCanvas = function () {
+  this.player.draw();
+  this.enemies.forEach(function (enemy) {
+    enemy.draw();
+  });
+  this.waves.forEach(function (wave) {
+    wave.draw();
+  });
+
 }
 
-Game.prototype.updateGame = function() {
-  
+Game.prototype.updateGame = function () {
+
   this.player.update();
-  
-  if (Math.random()> 0.98 && this.enemies.length < 8){
+
+  if (Math.random() > 0.98 && this.enemies.length < 8) {
     this.createEnemies();
   };
-  
-  this.enemies = this.enemies.filter(function(enemy){
+
+  this.enemies = this.enemies.filter(function (enemy) {
     return enemy.isInScreen();
   });
-  
-  this.enemies.forEach(function(enemy){
+
+  this.enemies.forEach(function (enemy) {
     enemy.update();
-    
-    if(this.player.checkCollition(enemy)){
+
+    if (this.player.checkCollition(enemy)) {
       this.endGame();
     }
   }.bind(this));
-  
-  
-  if ( this.waves.length < 1){
+
+
+  if (this.waves.length < 1) {
     this.createWaves();
   };
-  
-  this.waves = this.waves.filter(function(wave){
+
+  this.waves = this.waves.filter(function (wave) {
     return wave.isInScreen();
   });
-  
-  this.waves.forEach(function(wave){
+
+  this.waves.forEach(function (wave) {
     wave.update();
-    if(this.player.checkCollition(wave)){
+    wave.destroyWaves();
+    if (this.player.checkCollition(wave)) {
       wave.collide();
       this.setPoints(this.score);
       this.score++;
-      
+
       console.log(this.score)
     }
   }.bind(this));
-  
-  
+
+
 };
 
-Game.prototype.createEnemies = function(){
-  var speedX = Math.round(Math.random() * 2 + 1);
+Game.prototype.createEnemies = function () {
+  var speedX = Math.round(Math.random() * 2 + 2);
   var y = Math.round(Math.random() * canvas.height);
   var direction = Math.round(Math.random());
-  var speedY = Math.round(Math.random() * 2 + 1);
-  if(direction === 0){
-    speedY = Math.round(Math.random() * 2 + 1)*(-1);
-    speedX = Math.round(Math.random() * 2 +1)*(-1);
+  var speedY = Math.round(Math.random() * 2 + 2);
+  if (direction === 0) {
+    speedY = Math.round(Math.random() * 2 + 2) * (-1);
+    speedX = Math.round(Math.random() * 2 + 2) * (-1);
 
   }
   this.enemies.push(new Enemy(canvas, y, speedX, speedY));
 }
 
-Game.prototype.createWaves = function(){
-  var speedX = Math.round(Math.random() * 2);
-  var y = Math.round(Math.random() * canvas.height);
-  var direction = Math.round(Math.random());
-  var speedY = Math.round(Math.random() * 2);
-  if(direction === 0){
-    speedY = Math.round(Math.random() * 2)*(-1);
-    speedX = Math.round(Math.random() * 2)*(-1);
+// Game.prototype.createWaves = function(){
+//   var speedX = Math.round(Math.random() * 2);
+//   var y = Math.round(Math.random() * canvas.height);
+//   var direction = Math.round(Math.random());
+//   var speedY = Math.round(Math.random() * 2);
+//   if(direction === 0){
+//     speedY = Math.round(Math.random() * 2)*(-1);
+//     speedX = Math.round(Math.random() * 2)*(-1);
 
-  }
-  this.waves.push(new Wave(canvas, y, speedX, speedY));
+//   }
+//   this.waves.push(new Wave(canvas, y, speedX, speedY));
+// }
+Game.prototype.createWaves = function () {
+  this.waves.push(new Wave(canvas));
 }
 
-
-Game.prototype.start = function(){
+Game.prototype.start = function () {
   function loop() {
     this.animation = window.requestAnimationFrame(loop.bind(this));
 
@@ -114,11 +117,10 @@ Game.prototype.start = function(){
 
 };
 
-Game.prototype.stop = function(){
+Game.prototype.stop = function () {
   window.cancelAnimationFrame(this.animation);
 }
 
-Game.prototype.onSetPoints= function(callbackPoints) {
+Game.prototype.onSetPoints = function (callbackPoints) {
   this.setPoints = callbackPoints;
 }
- 

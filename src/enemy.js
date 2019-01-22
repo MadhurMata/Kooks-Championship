@@ -1,10 +1,10 @@
 "use strict"
 
 
-function Enemy(canvas, y, speedX, speedY){
+function Enemy(canvas, y, speedX, speedY) {
   this.size = 20;
   this.y = Math.round(Math.random() * canvas.height);
-  this.x = canvas.width-(this.size * 5);
+  this.x = canvas.width - (this.size * 5);
   this.speedX = speedX;
   this.speedY = speedY;
   this.canvas = canvas;
@@ -12,31 +12,31 @@ function Enemy(canvas, y, speedX, speedY){
   this.directionY = 1;
   this.ctx = canvas.getContext('2d');
   this.img = new Image();
-    this.img.src = "./images/shark.svg";
+  this.img.src = "./images/shark.svg";
 
 }
 
-Enemy.prototype.draw = function(){
+Enemy.prototype.draw = function () {
   this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
 };
 
 
-Enemy.prototype.update = function (){
+Enemy.prototype.update = function () {
   this.x -= this.directionX * this.speedX;
   this.y += this.directionY * this.speedY;
-  
+
   if ((this.y <= 0) || (this.y >= this.canvas.height - this.size)) {
     this.directionY *= -1;
     if (this.y <= 0) {
       this.y = 0;
+    }
   }
-}
-if ((this.x <= 0) || (this.x >= this.canvas.width - this.size)) {
-  this.directionX *= -1;
-  if (this.x <= 0) {
-    this.x = 0;
-}
-}
+  if ((this.x <= 0) || (this.x >= this.canvas.width - this.size)) {
+    this.directionX *= -1;
+    if (this.x <= 0) {
+      this.x = 0;
+    }
+  }
 
 };
 
