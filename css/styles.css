@@ -115,12 +115,25 @@ textarea{
 .buttons{
   display: flex;
   align-items: center;
+  padding: 30px;
 }
 .startButton{
-  width: 300px;
+  background-image: url("../images/surfboard.png");
+  background-size: cover;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  padding-right: 10%;
+ padding: 30px 40px
 }
 .returnButton{
-  
+  background-image: url("../images/fins.png");
+  background-size: cover;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+ padding: 100px 40px
+
 }
   
 

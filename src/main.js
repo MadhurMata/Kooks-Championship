@@ -74,8 +74,8 @@ function main() {
       </div>
     </div>
     <div class="buttons">
-      <div class="startButton"><a href="#" id="start" class="button">Play again</a></div>  
-      <div class="returnButton"><a href="#" id="start" class="button">Return</a></div>   
+      <div><a href="#" id="start" class="startButton">Play again</a></div>  
+      <div><a href="#" id="start" class="returnButton">Return</a></div>   
     </div>
   </div>`;
     buildScreen(gameOverScreen);
