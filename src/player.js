@@ -42,7 +42,7 @@ Player.prototype.update = function() {
     if (this.velX > -this.speed) {
         this.velX--;
     }
-  } else {4
+  } else {
     this.srcY = 52;
 }
  this.movement();

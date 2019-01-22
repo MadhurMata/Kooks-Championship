@@ -3,8 +3,8 @@
 
 function Wave(canvas, y, speedX, speedY){
   this.size = 50;
-  this.y = Math.round(Math.random() * canvas.height);
-  this.x = canvas.width-(this.size * 5);
+  this.y = (Math.round(Math.random() * canvas.height) - this.size);
+  this.x = (Math.round(Math.random() * canvas.width) - this.size);
   this.speedX = speedX;
   this.speedY = speedY;
   this.canvas = canvas;

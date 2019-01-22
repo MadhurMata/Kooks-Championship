@@ -60,7 +60,7 @@ function main() {
   function buildGameOverScreen(){
     var gameOverScreen = 
     `<div id="z">
-    <div class="gameOver"></div> 
+    <div><img class="gameOver" src="./images/gameOver.png" alt="Game over words"></div> 
     <div>
       <div class="tableTitle"><h2>Ranking</h2></div>
       <div class="bestScores">
@@ -74,8 +74,8 @@ function main() {
       </div>
     </div>
     <div class="buttons">
-      <div><a href="#" id="start" class="button">Play again</a></div>  
-      <div><a href="#" id="start" class="button">Return</a></div>   
+      <div class="startButton"><a href="#" id="start" class="button">Play again</a></div>  
+      <div class="returnButton"><a href="#" id="start" class="button">Return</a></div>   
     </div>
   </div>`;    
     buildScreen(gameOverScreen);

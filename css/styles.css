@@ -27,11 +27,12 @@ h1{
 }
 
 #container{
-  background-image: url("../images/backgroundSplash.jpg");
-  background-size: cover;
+  
   
 }
 #x{
+  background-image: url("../images/backgroundSplash.jpg");
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,18 +90,35 @@ textarea{
   background-image: url("../images/backgroundGameOver.png");
   background-size: cover;
   opacity: 0.8;
-  padding: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  padding: 10% 0 30%;
   }
   
 .gameOver{
-  background-image: url("../images/gameOver.png");
-  background-size: cover;
-  padding-bottom: 4%;
-  padding-left: 25%;
+  width: 326px;
+  height: auto;
 }
+
+.tableTitle{
+  font-size: 1.6rem;
+}
+
+.bestScores{
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttons{
+  display: flex;
+  align-items: center;
+}
+.startButton{
+  width: 300px;
+}
+
   
 

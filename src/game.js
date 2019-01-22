@@ -71,13 +71,13 @@ Game.prototype.updateGame = function() {
 };
 
 Game.prototype.createEnemies = function(){
-  var speedX = Math.round(Math.random() * 2 + 2);
+  var speedX = Math.round(Math.random() * 2 + 1);
   var y = Math.round(Math.random() * canvas.height);
   var direction = Math.round(Math.random());
-  var speedY = Math.round(Math.random() * 2 + 2);
+  var speedY = Math.round(Math.random() * 2 + 1);
   if(direction === 0){
-    speedY = Math.round(Math.random() * 2 + 2)*(-1);
-    speedX = Math.round(Math.random() * 2 +2)*(-1);
+    speedY = Math.round(Math.random() * 2 + 1)*(-1);
+    speedX = Math.round(Math.random() * 2 +1)*(-1);
 
   }
   this.enemies.push(new Enemy(canvas, y, speedX, speedY));
