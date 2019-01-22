@@ -8,7 +8,7 @@ function Game(canvas, endGame) {
   this.animation;
   this.canvas = canvas;
   this.endGame = endGame;
-  this.score = [];
+  this.score = 1;
 
 };
 
@@ -28,43 +28,46 @@ Game.prototype.drawCanvas = function(){
 }
 
 Game.prototype.updateGame = function() {
-
-    this.player.update();
-
-    if (Math.random()> 0.98 && this.enemies.length < 8){
-      this.createEnemies();
-    };
-
-    this.enemies = this.enemies.filter(function(enemy){
-      return enemy.isInScreen();
-    });
-
-    this.enemies.forEach(function(enemy){
-      enemy.update();
-
-      if(this.player.checkCollition(enemy)){
-        this.endGame();
-      }
-    }.bind(this));
-
-    if ( this.waves.length < 1){
-      this.createWaves();
-    };
-
-    this.waves = this.waves.filter(function(wave){
-      return wave.isInScreen();
-    });
-
-    this.waves.forEach(function(wave){
-      wave.update();
-
-      if(this.player.checkCollition(wave)){
-        this.score.push(this.score + 1);
-        console.log(this.score)
-        wave.collide();
-      }
-    }.bind(this));
+  
+  this.player.update();
+  
+  if (Math.random()> 0.98 && this.enemies.length < 8){
+    this.createEnemies();
+  };
+  
+  this.enemies = this.enemies.filter(function(enemy){
+    return enemy.isInScreen();
+  });
+  
+  this.enemies.forEach(function(enemy){
+    enemy.update();
     
+    if(this.player.checkCollition(enemy)){
+      this.endGame();
+    }
+  }.bind(this));
+  
+  
+  if ( this.waves.length < 1){
+    this.createWaves();
+  };
+  
+  this.waves = this.waves.filter(function(wave){
+    return wave.isInScreen();
+  });
+  
+  this.waves.forEach(function(wave){
+    wave.update();
+    if(this.player.checkCollition(wave)){
+      wave.collide();
+      this.setPoints(this.score);
+      this.score++;
+      
+      console.log(this.score)
+    }
+  }.bind(this));
+  
+  
 };
 
 Game.prototype.createEnemies = function(){
@@ -113,5 +116,9 @@ Game.prototype.start = function(){
 
 Game.prototype.stop = function(){
   window.cancelAnimationFrame(this.animation);
+}
+
+Game.prototype.onSetPoints= function(callbackPoints) {
+  this.setPoints = callbackPoints;
 }
  

@@ -33,15 +33,16 @@ function main() {
     var gameScreen =
     `<div id="y">
     <div class="info">
-      <div><h2>00</h2></div>
+      <div><h2 class="score">0</h2></div>
       <div><h2>Score</h2></div>
     </div>
     <div><canvas id="canvas" width="600" height="600"></canvas></div>
   </div>`;
     buildScreen(gameScreen);
     
-    // mySound = new sound("../music/bustinsurf.mp3")
+    var div= document.querySelector(".score");
     
+    // mySound = new sound("../music/bustinsurf.mp3")
     var canvas = document.getElementById("canvas");
     var game = new Game(canvas, endGame);
     game.start();
@@ -50,33 +51,37 @@ function main() {
     game.stop();
     buildGameOverScreen()
   }
-  
-    function buildGameOverScreen(){
-      var gameOverScreen = 
-      `<div id="z">
-      <div class="gameOver"></div> 
-      <div>
-        <div class="tableTitle"><h2>Ranking</h2></div>
-        <div class="bestScores">
-          <ol>
-            <li>..............</li>
-            <li>..............</li>
-            <li>..............</li>
-            <li>..............</li>
-            <li>..............</li>
-          </ol>
-        </div>
-      </div>
-      <div class="buttons">
-        <div><a href="#" id="start" class="button">Play again</a></div>  
-        <div><a href="#" id="start" class="button">Return</a></div>   
-      </div>
-    </div>`;    
-      buildScreen(gameOverScreen);
-      document.getElementById("start").addEventListener("click", startGame);  
-      
-    }  
+  function setPoints(points) {
+    div.innerText = points
+  }
+  game.onSetPoints(setPoints)
 }
+
+  function buildGameOverScreen(){
+    var gameOverScreen = 
+    `<div id="z">
+    <div class="gameOver"></div> 
+    <div>
+      <div class="tableTitle"><h2>Ranking</h2></div>
+      <div class="bestScores">
+        <ol>
+          <li>..............</li>
+          <li>..............</li>
+          <li>..............</li>
+          <li>..............</li>
+          <li>..............</li>
+        </ol>
+      </div>
+    </div>
+    <div class="buttons">
+      <div><a href="#" id="start" class="button">Play again</a></div>  
+      <div><a href="#" id="start" class="button">Return</a></div>   
+    </div>
+  </div>`;    
+    buildScreen(gameOverScreen);
+    document.getElementById("start").addEventListener("click", startGame);  
+    
+  }  
 
   startScreen();
 
