@@ -36,50 +36,56 @@ function main() {
       <div><h2 class="score">0</h2></div>
       <div><h2>Score</h2></div>
     </div>
-    <div><canvas id="canvas" width="600" height="600"></canvas></div>
+    <div><canvas id="canvas" width="700" height="600"></canvas></div>
   </div>`;
     buildScreen(gameScreen);
 
+    var backGroundAudio = new Audio("./music/bustinsurf.mp3");
+    backGroundAudio.play();
     var div = document.querySelector(".score");
 
     // mySound = new sound("../music/bustinsurf.mp3")
     var canvas = document.getElementById("canvas");
     var game = new Game(canvas, endGame);
     game.start();
-
     function endGame() {
-      game.stop();
+      game.stopGame();
+      backGroundAudio.pause();
       buildGameOverScreen()
     }
     function setPoints(points) {
       div.innerText = points
     }
     game.onSetPoints(setPoints)
+
   }
 
   function buildGameOverScreen() {
     var gameOverScreen =
-      `<div id="z">
-    <div><img class="gameOver" src="./images/gameOver.png" alt="Game over words"></div> 
-    <div>
-      <div class="tableTitle"><h2>Ranking</h2></div>
-      <div class="bestScores">
-        <ol>
-          <li>..............</li>
-          <li>..............</li>
-          <li>..............</li>
-          <li>..............</li>
-          <li>..............</li>
-        </ol>
-      </div>
-    </div>
-    <div class="buttons">
-      <div><a href="#" id="start" class="startButton">Play again</a></div>  
-      <div><a href="#" id="start" class="returnButton">Return</a></div>   
-    </div>
-  </div>`;
+    `<div id="z">
+      <div><img class="gameOver" src="./images/gameOver.png" alt="Game over words"></div> 
+      <div class="rankingButtons">
+        <div class="table">
+          <div class="tableTitle"><h2>League Ranking</h2></div>
+          <div class="bestScores">
+            <ol>
+              <li>..........................</li>
+              <li>..........................</li>
+              <li>..........................</li>
+              <li>..........................</li>
+              <li>..........................</li>
+            </ol>
+          </div>
+        </div>
+        <div class="buttons">
+          <div><a href="#" id="start" class="startButton">Play again</a></div>  
+          <div><a href="#" id="newPlayer" class="returnButton">New Player</a></div>   
+        </div>
+      </div>  
+    </div>`;
     buildScreen(gameOverScreen);
     document.getElementById("start").addEventListener("click", startGame);
+    document.getElementById("newPlayer").addEventListener("click", startScreen);
 
   }
 

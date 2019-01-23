@@ -66,14 +66,17 @@ textarea{
 }
 
 #y{
+  background-image: url("../images/arena.png");
+  background-size: cover;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 .info{
   display: flex;
   justify-content: end;
-  padding-right: 5%;
+  padding-right: 8%;
   padding-left: 5%;
   align-items: center;
   flex-direction: column;
@@ -93,12 +96,20 @@ textarea{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10% 0 25%;
   }
   
 .gameOver{
   width: 326px;
   height: auto;
+  transform: rotate(30deg);
+}
+
+.table{
+  background-color: rgba(109, 52, 52, 0.91);
+  opacity: 0.7;
+  border-radius: 10%;
+  border: solid;
+  color: #38f500;
 }
 
 .tableTitle{
@@ -115,25 +126,37 @@ textarea{
 .buttons{
   display: flex;
   align-items: center;
-  padding: 30px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.rankingButtons{
+  display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 5% 3% 20%;
+    justify-content: space-around;
 }
 .startButton{
-  background-image: url("../images/surfboard.png");
+  background: url(../images/surfboard.png) no-repeat 0 0;
   background-size: cover;
   text-decoration: none;
   color: white;
   font-size: 2rem;
-  padding-right: 10%;
- padding: 30px 40px
+  padding: 30px 40px;
 }
-.returnButton{
-  background-image: url("../images/fins.png");
-  background-size: cover;
-  text-decoration: none;
-  color: white;
-  font-size: 2rem;
- padding: 100px 40px
 
+
+.returnButton{
+  background-image: url(../images/fin.png);
+  background-size: cover;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  padding: 100px 40px;
 }
-  
+
+#newPlayer{
+  padding-top: 130px;
+}
 

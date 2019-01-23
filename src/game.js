@@ -9,6 +9,7 @@ function Game(canvas, endGame) {
   this.canvas = canvas;
   this.endGame = endGame;
   this.score = 1;
+  this.highScore = [];
 
 };
 
@@ -121,10 +122,16 @@ Game.prototype.start = function () {
 
 };
 
-Game.prototype.stop = function () {
+Game.prototype.stopGame = function () {
   window.cancelAnimationFrame(this.animation);
 }
 
 Game.prototype.onSetPoints = function (callbackPoints) {
   this.setPoints = callbackPoints;
+}
+
+Game.prototype.storeScores = function(){
+  if(this.score > highScore){
+    
+  }
 }
