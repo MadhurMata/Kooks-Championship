@@ -64,8 +64,6 @@ Game.prototype.updateGame = function () {
       wave.collide();
       this.setPoints(this.score);
       this.score++;
-
-      console.log(this.score)
     }
   }.bind(this));
 
@@ -84,22 +82,8 @@ Game.prototype.createEnemies = function () {
   this.enemies.push(new Enemy(canvas, y, speedX, speedY));
 }
 
-// Game.prototype.createWaves = function(){
-//   var speedX = Math.round(Math.random() * 2);
-//   var y = Math.round(Math.random() * canvas.height);
-//   var direction = Math.round(Math.random());
-//   var speedY = Math.round(Math.random() * 2);
-//   if(direction === 0){
-//     speedY = Math.round(Math.random() * 2)*(-1);
-//     speedX = Math.round(Math.random() * 2)*(-1);
-
-//   }
-//   this.waves.push(new Wave(canvas, y, speedX, speedY));
-// }
 Game.prototype.createWaves = function () {
-  // if (this.wave.y < this.canvas.height - this.wave.size && wave.y > this.wave.y - this.wave.size) {
     this.waves.push(new Wave(canvas));
-  // };
 };
 Game.prototype.destroyWaves = function(wave){
   if(wave.y > this.canvas.height - (3 * wave.size)){

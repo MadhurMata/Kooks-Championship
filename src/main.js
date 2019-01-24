@@ -44,7 +44,6 @@ function main() {
     backGroundAudio.play();
     var div = document.querySelector(".score");
 
-    // mySound = new sound("../music/bustinsurf.mp3")
     var canvas = document.getElementById("canvas");
     var game = new Game(canvas, endGame);
     game.start();
