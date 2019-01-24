@@ -32,7 +32,7 @@ Game.prototype.updateGame = function () {
 
   this.player.update();
 
-  if (Math.random() > 0.98 && this.enemies.length < 8) {
+  if (Math.random() > 0.98 && this.score > this.enemies.length + 2) {
     this.createEnemies();
   };
 
