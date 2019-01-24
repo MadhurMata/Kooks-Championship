@@ -128,7 +128,7 @@ function main() {
 
     rankingPlayers.forEach(function (player) {
         var li = document.createElement('li');
-        li.appendChild(document.createTextNode(`${player.name} ${player.score} Points`));
+        li.appendChild(document.createTextNode(`${player.name}  - ${player.score} Points`));
         ol.appendChild(li);
     });
     
