@@ -14,6 +14,7 @@ function Player(canvas) {
   this.ctx = canvas.getContext('2d');
   this.img = new Image();
   this.img.src = "./images/surfer.png";
+
 };
 
 Player.prototype.draw = function () {
@@ -77,6 +78,7 @@ Player.prototype.checkCollition = function (enemy) {
   return leftCollition && rightCollition && topCollition && bottomCollition;
 
 }
+
 Player.prototype.checkCollition = function (wave) {
 
   var rightCollition = this.x + this.size / 2 > wave.x - wave.size / 2;

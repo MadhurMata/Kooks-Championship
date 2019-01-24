@@ -13,6 +13,7 @@ function Enemy(canvas, y, speedX, speedY) {
   this.ctx = canvas.getContext('2d');
   this.img = new Image();
   this.img.src = "./images/shark.svg";
+  this.sharkBite = new Audio("./music/shark.wav");
 
 }
 

@@ -45,6 +45,8 @@ Game.prototype.updateGame = function () {
 
     if (this.player.checkCollition(enemy)) {
       this.endGame();
+      enemy.sharkBite.play();
+
     }
   }.bind(this));
 
