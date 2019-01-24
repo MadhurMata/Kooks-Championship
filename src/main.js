@@ -3,9 +3,7 @@
 function main() {
 
   function buildScreen(html) {
-    //Crear una varianle y seleccionar un elemento del DOM por el ID
     var div = document.getElementById("container");
-    //MOdificar todo el interior del html de lo selecionado anteriormente por el atributo que me pasa la funcion
     div.innerHTML = html;
   }
   function startScreen() {
@@ -24,9 +22,9 @@ function main() {
       <div><a href="#" id="start" class="button">Start Game</a></div> 
     </div>
   </div>`;
-    //LLamo y pinto pantalla de inicio
     buildScreen(splashScreen);
-    //Pongo la funcion de ir a la pantalla de juego en un boton de splash screen
+    
+    
     document.getElementById("start").addEventListener("click", startGame);
   }
   function startGame() {
@@ -67,12 +65,12 @@ function main() {
         <div class="table">
           <div class="tableTitle"><h2>League Ranking</h2></div>
           <div class="bestScores">
-            <ol>
-              <li>..........................</li>
-              <li>..........................</li>
-              <li>..........................</li>
-              <li>..........................</li>
-              <li>..........................</li>
+            <ol "ranking">
+              <li class="primero">..........................</li>
+              <li "segundo">..........................</li>
+              <li "tercero">..........................</li>
+              <li "cuarto">..........................</li>
+              <li "quinto">..........................</li>
             </ol>
           </div>
         </div>
@@ -82,6 +80,13 @@ function main() {
         </div>
       </div>  
     </div>`;
+
+    // function printRanking(){
+    //   var ranking = document.getElementById("ranking");
+    //   sessionStorage.getItem(highScore);
+    //   ranking.innerHTML = highScore.name + highScore.score;
+    // }
+    // printRanking();
     buildScreen(gameOverScreen);
     document.getElementById("start").addEventListener("click", startGame);
     document.getElementById("newPlayer").addEventListener("click", startScreen);
@@ -92,13 +97,12 @@ function main() {
 
 
 };
-// Hace que cargue la pagina antes de ejecutar todo el codigo en main
 window.addEventListener("load", main)
 
 document.body.addEventListener("keydown", function (e) {
-  keys[e.keyCode] = true;
+  keysPress[e.keyCode] = true;
 });
 document.body.addEventListener("keyup", function (e) {
-  keys[e.keyCode] = false;
+  keysPress[e.keyCode] = false;
 });
 

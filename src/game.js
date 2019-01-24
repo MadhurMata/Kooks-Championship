@@ -9,7 +9,8 @@ function Game(canvas, endGame) {
   this.canvas = canvas;
   this.endGame = endGame;
   this.score = 1;
-  this.highScore = [];
+  this.playerName = "Madhur";
+  this.highScore = JSON.parse(localStorage.getItem("highScore") || "[]");
 
 };
 
@@ -64,6 +65,7 @@ Game.prototype.updateGame = function () {
     this.destroyWaves(wave);
     if (this.player.checkCollition(wave)) {
       wave.collide();
+      wave.sickSound.play();
       this.setPoints(this.score);
       this.score++;
     }
@@ -110,6 +112,7 @@ Game.prototype.start = function () {
 
 Game.prototype.stopGame = function () {
   window.cancelAnimationFrame(this.animation);
+  this.setHighScore();
 }
 
 Game.prototype.onSetPoints = function (callbackPoints) {
@@ -121,3 +124,8 @@ Game.prototype.storeScores = function(){
     
   }
 }
+
+Game.prototype.setHighScore = function(){
+  this.highScore.push({name: this.playerName, score: this.score});
+  localStorage.setItem("highScore", JSON.stringify(this.highScore));
+};

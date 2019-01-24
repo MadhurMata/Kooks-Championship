@@ -105,16 +105,16 @@ textarea{
 }
 
 .table{
-  background-color: rgba(109, 52, 52, 0.91);
+  background-color: rgb(155, 156, 159);
   opacity: 0.7;
   border-radius: 10%;
   border: solid;
-  color: #38f500;
+  color: #000002f2;
 }
 
 .tableTitle{
   font-size: 1.6rem;
-}
+} 
 
 .bestScores{
   font-size: 1.6rem;

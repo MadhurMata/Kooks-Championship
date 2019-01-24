@@ -29,7 +29,6 @@ Wave.prototype.isInScreen = function () {
 };
 
 Wave.prototype.collide = function () {
-  this.sickSound.play();
   this.x = -100000;
 };
 

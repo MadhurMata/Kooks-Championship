@@ -9,7 +9,7 @@ function Player(canvas) {
   this.velY = 0;
   this.velX = 0;
   this.speed = 3;
-  this.friction = 0.8;
+  this.friction = 0.98;
   this.canvas = canvas;
   this.ctx = canvas.getContext('2d');
   this.img = new Image();
@@ -20,25 +20,25 @@ function Player(canvas) {
 Player.prototype.draw = function () {
   this.ctx.drawImage(this.img, this.srcX, this.srcY, this.size, this.size, this.x, this.y, this.size, this.size);
 };
-var keys = [];
-
+var keysPress = [];
+console.log(keysPress)
 Player.prototype.update = function () {
-  if (keys[38]) { //up
+  if (keysPress[38]) { //up
     this.srcY = 104;
     if (this.velY > -this.speed) {
       this.velY--;
     }
-  } else if (keys[40]) { //down
+  } else if (keysPress[40]) { //down
     this.srcY = 52;
     if (this.velY < this.speed) {
       this.velY++;
     }
-  } else if (keys[39]) { //right
+  } else if (keysPress[39]) { //right
     this.srcY = 0;
     if (this.velX < this.speed) {
       this.velX++;
     }
-  } else if (keys[37]) { //left
+  } else if (keysPress[37]) { //left
     this.srcY = 156;
     if (this.velX > -this.speed) {
       this.velX--;
