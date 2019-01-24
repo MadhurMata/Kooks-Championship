@@ -23,15 +23,41 @@ function main() {
     </div>
   </div>`;
     buildScreen(splashScreen);
+
+    // function saveName() {
+    //   
+      
+    //   var players = JSON.parse(localStorage.getItem("players"))
+    //   if(players) {
+    //     players.
+    //     players[name].name = name
+    //   } else {
+    //     var players = {
+    //       [name]: {name}
+    //     }
+    //   }
+
+    //   localStorage.setItem("players", JSON.stringify(players))
+    // }
+
+    // document.getElementById("insertName").addEventListener("keypress", function(e) {
+     
+    //   (e.keyCode === 32) ? saveName() : null;
+    // });
+    document.getElementById("start").addEventListener("click", function() {
+      var name = document.getElementById("insertName").value
+      console.log(name)
+      startGame(name)
+    });
     
-    
-    document.getElementById("start").addEventListener("click", startGame);
+  
   }
-  function startGame() {
+  function startGame(name) {
+    
     var gameScreen =
       `<div id="y">
     <div class="info">
-      <div><h2 class="score">0</h2></div>
+      <div><h2 id="score">0</h2></div>
       <div><h2>Score</h2></div>
     </div>
     <div><canvas id="canvas" width="700" height="600"></canvas></div>
@@ -40,7 +66,7 @@ function main() {
 
     var backGroundAudio = new Audio("./music/bustinsurf.mp3");
     backGroundAudio.play();
-    var div = document.querySelector(".score");
+    var div = document.getElementById("score");
 
     var canvas = document.getElementById("canvas");
     var game = new Game(canvas, endGame);
@@ -48,7 +74,7 @@ function main() {
     function endGame() {
       game.stopGame();
       backGroundAudio.pause();
-      buildGameOverScreen()
+      buildGameOverScreen(name)
     }
     function setPoints(points) {
       div.innerText = points
@@ -57,7 +83,7 @@ function main() {
 
   }
 
-  function buildGameOverScreen() {
+  function buildGameOverScreen(name) {
     var gameOverScreen =
     `<div id="z">
       <div><img class="gameOver" src="./images/gameOver.png" alt="Game over words"></div> 
@@ -65,12 +91,7 @@ function main() {
         <div class="table">
           <div class="tableTitle"><h2>League Ranking</h2></div>
           <div class="bestScores">
-            <ol "ranking">
-              <li class="primero">..........................</li>
-              <li "segundo">..........................</li>
-              <li "tercero">..........................</li>
-              <li "cuarto">..........................</li>
-              <li "quinto">..........................</li>
+            <ol id="ranking">
             </ol>
           </div>
         </div>
@@ -81,28 +102,46 @@ function main() {
       </div>  
     </div>`;
 
-    // function printRanking(){
-    //   var ranking = document.getElementById("ranking");
-    //   sessionStorage.getItem(highScore);
-    //   ranking.innerHTML = highScore.name + highScore.score;
-    // }
-    // printRanking();
-    buildScreen(gameOverScreen);
-    document.getElementById("start").addEventListener("click", startGame);
-    document.getElementById("newPlayer").addEventListener("click", startScreen);
 
+    var score = document.getElementById("score").textContent;
+
+    
+    var players = JSON.parse(localStorage.getItem("players"));
+    if(players) {
+      players.push({name, score})
+    } else {
+      var players = [{name, score}]
+    }
+    
+    var playersSorted = players.sort(function(a, b) {
+      return b.score - a.score;
+    });
+
+    var rankingPlayers = playersSorted.slice(playersSorted-6, 5);
+
+    localStorage.setItem("players", JSON.stringify(playersSorted));
+    
+    buildScreen(gameOverScreen);
+    var name = localStorage.getItem("name")
+    var points = localStorage.getItem("score")
+    var ol = document.getElementById("ranking")
+
+    rankingPlayers.forEach(function (player) {
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${player.name} ${player.score} Points`));
+        ol.appendChild(li);
+    });
+    
+      document.getElementById("start").addEventListener("click", startGame);
+      document.getElementById("newPlayer").addEventListener("click", startScreen);
+    
   }
 
+
   startScreen();
+}
 
-
-};
 window.addEventListener("load", main)
 
-document.body.addEventListener("keydown", function (e) {
-  keysPress[e.keyCode] = true;
-});
-document.body.addEventListener("keyup", function (e) {
-  keysPress[e.keyCode] = false;
-});
+
 

@@ -8,7 +8,7 @@ function Player(canvas) {
   this.size = 52;
   this.velY = 0;
   this.velX = 0;
-  this.speed = 3;
+  this.speed = 2;
   this.friction = 0.98;
   this.canvas = canvas;
   this.ctx = canvas.getContext('2d');
@@ -68,23 +68,23 @@ Player.prototype.movement = function () {
   };
 };
 
-Player.prototype.checkCollition = function (enemy) {
+Player.prototype.checkCollision = function (enemy) {
 
-  var rightCollition = this.x + this.size / 2 > enemy.x - enemy.size / 2;
-  var leftCollition = this.x < enemy.x + enemy.size / 2;
-  var topCollition = this.y < enemy.y + enemy.size / 2;
-  var bottomCollition = this.y + this.size / 2 > enemy.y - enemy.size / 2;
+  var rightCollision = this.x + this.size / 2 > enemy.x - enemy.size / 2;
+  var leftCollision = this.x < enemy.x + enemy.size / 2;
+  var topCollision = this.y < enemy.y + enemy.size / 2;
+  var bottomCollision = this.y + this.size / 2 > enemy.y - enemy.size / 2;
 
-  return leftCollition && rightCollition && topCollition && bottomCollition;
+  return leftCollision && rightCollision && topCollision && bottomCollision;
 
 }
 
-Player.prototype.checkCollition = function (wave) {
+Player.prototype.checkCollision = function (wave) {
 
-  var rightCollition = this.x + this.size / 2 > wave.x - wave.size / 2;
-  var leftCollition = this.x < wave.x + wave.size / 2;
-  var topCollition = this.y < wave.y + wave.size / 2;
-  var bottomCollition = this.y + this.size / 2 > wave.y - wave.size / 2;
+  var rightCollision = this.x + this.size / 2 > wave.x - wave.size / 2;
+  var leftCollision = this.x < wave.x + wave.size / 2;
+  var topCollision = this.y < wave.y + wave.size / 2;
+  var bottomCollision = this.y + this.size / 2 > wave.y - wave.size / 2;
 
-  return leftCollition && rightCollition && topCollition && bottomCollition;
+  return leftCollision && rightCollision && topCollision && bottomCollision;
 }

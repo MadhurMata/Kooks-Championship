@@ -9,9 +9,8 @@ function Game(canvas, endGame) {
   this.canvas = canvas;
   this.endGame = endGame;
   this.score = 1;
-  this.playerName = "Madhur";
-  this.highScore = JSON.parse(localStorage.getItem("highScore") || "[]");
-
+  this.playerName = "";
+  this.highScore = []
 };
 
 Game.prototype.clearCanvas = function () {
@@ -44,7 +43,7 @@ Game.prototype.updateGame = function () {
   this.enemies.forEach(function (enemy) {
     enemy.update();
 
-    if (this.player.checkCollition(enemy)) {
+    if (this.player.checkCollision(enemy)) {
       this.endGame();
       enemy.sharkBite.play();
 
@@ -63,7 +62,7 @@ Game.prototype.updateGame = function () {
   this.waves.forEach(function (wave) {
     wave.update();
     this.destroyWaves(wave);
-    if (this.player.checkCollition(wave)) {
+    if (this.player.checkCollision(wave)) {
       wave.collide();
       wave.sickSound.play();
       this.setPoints(this.score);
@@ -74,13 +73,13 @@ Game.prototype.updateGame = function () {
 };
 
 Game.prototype.createEnemies = function () {
-  var speedX = Math.round(Math.random() * 2 + 2);
+  var speedX = Math.round(Math.random() * 2);
   var y = Math.round(Math.random() * canvas.height);
   var direction = Math.round(Math.random());
-  var speedY = Math.round(Math.random() * 2 + 2);
+  var speedY = Math.round(Math.random() * 2);
   if (direction === 0) {
-    speedY = Math.round(Math.random() * 2 + 2) * (-1);
-    speedX = Math.round(Math.random() * 2 + 2) * (-1);
+    speedY = Math.round(Math.random() * 2 + 1) * (-1);
+    speedX = Math.round(Math.random() * 2 + 1) * (-1);
 
   }
   this.enemies.push(new Enemy(canvas, y, speedX, speedY));
@@ -96,6 +95,7 @@ Game.prototype.destroyWaves = function(wave){
 }
 
 Game.prototype.start = function () {
+  this.onlyWhenStarts();
   function loop() {
     this.animation = window.requestAnimationFrame(loop.bind(this));
 
@@ -111,6 +111,7 @@ Game.prototype.start = function () {
 };
 
 Game.prototype.stopGame = function () {
+
   window.cancelAnimationFrame(this.animation);
   this.setHighScore();
 }
@@ -126,6 +127,16 @@ Game.prototype.storeScores = function(){
 }
 
 Game.prototype.setHighScore = function(){
-  this.highScore.push({name: this.playerName, score: this.score});
-  localStorage.setItem("highScore", JSON.stringify(this.highScore));
+  this.highScore.push({name: this.name, score: this.score});
 };
+
+Game.prototype.onlyWhenStarts = function() {
+
+
+document.body.addEventListener("keydown", function (e) {
+  keysPress[e.keyCode] = true;
+});
+document.body.addEventListener("keyup", function (e) {
+  keysPress[e.keyCode] = false;
+});
+}
