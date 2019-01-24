@@ -2,6 +2,7 @@
 
 html {
   box-sizing: border-box;
+  overflow: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -27,8 +28,9 @@ h1{
 }
 
 #container{
-  max-width: 930px;
-  
+  max-width: 60vw;
+  margin: 5% 20%;
+  height: 50vh;  
 }
 #x{
   background-image: url("../images/backgroundSplash.jpg");
