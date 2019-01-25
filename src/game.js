@@ -11,13 +11,7 @@ function Game(canvas, endGame) {
   this.score = 1;
   this.playerName = "";
   this.highScore = []
-//   this.score = 0;
-//   this.highScore = JSON.parse(localStorage.getItem("highScore") || "[]");
-//   this.playerName = "YO"
-// };
-// Game.prototype.setHighScore = function(){
-//   this.highScore.push({name: this.playerName, score: this.score});
-//   localStorage.setItem("highScore", JSON.stringify(this.highScore));
+
 };
 
 

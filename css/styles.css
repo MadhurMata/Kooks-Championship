@@ -32,7 +32,7 @@ h1{
   margin: 5% 20%;
   height: 50vh;  
 }
-#x{
+#firstScreen{
   background-image: url("../images/backgroundSplash.jpg");
   background-size: cover;
   display: flex;
@@ -67,7 +67,7 @@ textarea{
   font-size: 2rem;
 }
 
-#y{
+#secondScreen{
   background-image: url("../images/arena.png");
   background-size: cover;
   display: flex;
@@ -91,7 +91,7 @@ textarea{
   align-items: center;
 }
 
-#z{
+#thirdScreen{
   background-image: url("../images/backgroundGameOver.png");
   background-size: cover;
   opacity: 0.8;

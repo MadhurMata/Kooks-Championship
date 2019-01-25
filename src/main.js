@@ -8,7 +8,7 @@ function main() {
   }
   function startScreen() {
     var splashScreen =
-      `<div id="x">
+      `<div id="firstScreen">
     <div>
       <div><h1>World Surf Kooks League</h1></div>
       <div class="playerName">
@@ -24,26 +24,7 @@ function main() {
   </div>`;
     buildScreen(splashScreen);
 
-    // function saveName() {
-    //   
-      
-    //   var players = JSON.parse(localStorage.getItem("players"))
-    //   if(players) {
-    //     players.
-    //     players[name].name = name
-    //   } else {
-    //     var players = {
-    //       [name]: {name}
-    //     }
-    //   }
-
-    //   localStorage.setItem("players", JSON.stringify(players))
-    // }
-
-    // document.getElementById("insertName").addEventListener("keypress", function(e) {
-     
-    //   (e.keyCode === 32) ? saveName() : null;
-    // });
+  
     document.getElementById("start").addEventListener("click", function() {
       var name = document.getElementById("insertName").value
       console.log(name)
@@ -55,7 +36,7 @@ function main() {
   function startGame(name) {
     
     var gameScreen =
-      `<div id="y">
+      `<div id="secondScreen">
     <div class="info">
       <div><h2 id="score">0</h2></div>
       <div><h2>Score</h2></div>
@@ -85,7 +66,7 @@ function main() {
 
   function buildGameOverScreen(name) {
     var gameOverScreen =
-    `<div id="z">
+    `<div id="thirdScreen">
       <div><img class="gameOver" src="./images/gameOver.png" alt="Game over words"></div> 
       <div class="rankingButtons">
         <div class="table">
