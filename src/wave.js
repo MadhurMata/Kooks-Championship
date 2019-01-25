@@ -11,7 +11,7 @@ function Wave(canvas, y, speedX, speedY) {
   this.ctx = canvas.getContext('2d');
   this.img = new Image();
   this.img.src = "./images/wave.svg";
-  this.sickSound = new Audio("./music/sick.m4a");
+  this.sick = new Audio("./music/sick.m4a");
     
 }
 

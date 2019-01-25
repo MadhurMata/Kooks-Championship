@@ -66,7 +66,7 @@ Game.prototype.updateGame = function () {
     this.destroyWaves(wave);
     if (this.player.checkCollision(wave)) {
       wave.collide();
-      wave.sickSound.play();
+      wave.sick.play();
       this.setPoints(this.score);
       this.score++;
     }

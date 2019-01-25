@@ -40,7 +40,10 @@ function main() {
     <div class="info">
       <div><h2 id="score">0</h2></div>
       <div><h2>Score</h2></div>
-    </div>
+      <div><img class="mundaka" src="./images/mundaka.jpeg"></div>
+      <div><img class="nias" src="./images/nias.jpeg"></div>
+      <div><img class="pipeline" src="./images/pipeline.jpeg"></div>
+      </div>
     <div><canvas id="canvas" width="700" height="600"></canvas></div>
   </div>`;
     buildScreen(gameScreen);
