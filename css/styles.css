@@ -2,7 +2,6 @@
 
 html {
   box-sizing: border-box;
-  overflow: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -17,10 +16,12 @@ body, ul, h1 {
 
 
 body{
-  
   font-family: 'Original Surfer', cursive;
-  max-width: 1440px;
-}
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;}
 
 h1{
  font-size: 3rem;
@@ -28,9 +29,7 @@ h1{
 }
 
 #container{
-  max-width: 60vw;
-  margin: 5% 20%;
-  height: 50vh;  
+  min-width: 60vw;
 }
 #firstScreen{
   background-image: url("../images/backgroundSplash.jpg");
