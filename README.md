@@ -7,11 +7,11 @@ MVP (CANVAS)
 
 
 # Project's name
-WSK (World Surf Kooks League)
+Kooks Championship
 
 
 ## Description
-Game where the “kook” (player) is a surfer that moves around an ocean with sick waves, but it is also nested of sharks.
+Game where the “kook” (player) is a surfer that moves around an ocean with sick waves, but it is also nested of sharks. Try to get as many waves you can in order to be one of the top 5 players in the ranking.
 
 ## MVP (DOM - CANVAS)
 
@@ -19,12 +19,12 @@ CANVAS One square moving around trying to avoid diferent other squares. The play
 
 ## Backlog
   - Give player lives
-  Give player points
-  Images
-  Backgrounds
-  Design
-  Music
-  High score
+  - Give player points
+  - Images
+  - Backgrounds
+  - Design
+  - Music & sounds
+  - High score
 
 ## Data structure
   ```function Game() {
@@ -73,7 +73,6 @@ Definition of the different states and their transition (transition functions)
 Splash Screen
 - Build splash screen
 - Build splash DOM
-- Destroy splash screen
 - AddEventListener
 
 Game Screen
@@ -84,7 +83,6 @@ Game Screen
 Gameover Screen
   - Build Game Over Screen
   - Build DOM
-  - Destroy gameover screen 
   - AddEventListener
 
 ## Task
@@ -108,10 +106,8 @@ Pre-coding
   - destroySplashScreen();
   - addEventListener();
   - buildGameScreen();
-  - destroyGameScreen(); 
 
   - buildGameoverScreen();
-  - destroyGameoverScreen(); 
   - addEventListener
   - Test transition between screens
 
